@@ -19,4 +19,13 @@ class bn_monolayer(hamiltonian):
 
     def eval_Hk(self, kpoint):
         # kpoint is in crystal (reduced) units
-        Hk=
+        # First neighboar tight-binding for monolayer BN
+        #
+        Hk.fill(0)
+        Hk[0,0]=0.0
+        Hk[1,1]=self.de
+        #
+        Hk[1,0]=self.t*f
+        Hk[0,1]=Hk[1,0].conjg()
+        #
+        return Hk
