@@ -1,5 +1,7 @@
 import math
 from numpy.linalg import inv
+import numpy as np
+from itertools import cycle
 
 class Hamiltonian
     def __init__(self):
@@ -53,6 +55,28 @@ class Hamiltonian
     def eval_Hk(self, kpoint):
         # to overriden in subclasses
         self.Hk = None
+
+    def get_Hk(self):
         return self.Hk
+        
+    def diag_Hk(self, kpoint)
+        self.eval_Hk(kpoint)
+        self.en, self.wf = np.linalg.eig(self.get_Hk)
+
+    def get_eigenvalues(self):
+        return self.en
+
+    def get_wavefunctions(self):
+        return self.wf
+
+    def band_structure(self, k_list, k_div):
+
+        last_k = k_list[-1]
+        for kpt in k_list:
+            if kpt == last_k:
+                break
+            for i in range(k_div)
+            k_line= kpt + 
+
 
 
