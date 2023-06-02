@@ -61,3 +61,18 @@ class Hamiltonian:
     def get_eigenv_and_wf(self):
         self.eval_Hk(kpoint)
         return np.linalg.eig(self.get_Hk)
+
+
+    def convert_to_cart(kpoint, k_units):
+        if(k_units == 'crystal'): 
+            # transform in cartersial coordinates
+            kpt=np.matmul(np.transpose(self.b),kpoint)    
+        elif(k_units == 'cart'):
+            # nothing to do 
+            kpt=kpoint
+        else:
+            print(' Error unknown units!!! ')
+            sys.exit(1)
+
+        return kpt
+

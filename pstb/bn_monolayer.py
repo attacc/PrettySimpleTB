@@ -1,5 +1,6 @@
 from hamiltonian import *
 import numpy as np
+import sys
 from scipy.constants import physical_constants as pyc
 
 class BN_Monolayer(Hamiltonian):
@@ -29,14 +30,7 @@ class BN_Monolayer(Hamiltonian):
 
     def eval_Hk(self, kpoint, k_units=None):
         #
-        if(k_units == 'crystal') 
-            # transform in cartersial coordinates
-            kpt=np.matmul(np.transpose(self.b),kpoint)    
-        elif (k_units == 'cart')
-            # nothing to do 
-            kpt=kpoint
-        else (k_units == None)
-            print(' Error unknown units!!! ')
+        kpt=self.convert_to_cart(kpoint, k_units)
         #
         # First neighboar tight-binding for monolayer BN
         #
