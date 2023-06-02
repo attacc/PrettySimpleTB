@@ -1,9 +1,8 @@
 import sys
-import hamiltonian
-import bn_monolayer
+from bn_monolayer import BN_Monolayer
 
 def main():
-    tb_test = bn_monolayer()
+    tb_test = BN_Monolayer()
 
 
 if __name__ == '__main__':
